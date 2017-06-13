@@ -11,28 +11,17 @@ $templates->display('public/index.tpl');
         $query='select nombres, apellidos from usuarios';
         $resultado=$db->query($query);
         $datos = array();
-        while ( $fila=$resultado->fetch_array())
+        while ($fila=$resultado->fetch_array()) 
         {
-            array_push($datos, 
-            ["nombres"=> $fila['nombres']], 
-            ["apellidos"=> $fila['apellidos']]
-            );
+            $datos []= array('nombres' => $fila['nombres'], 'apellidos' => $fila['apellidos']); 
         }
-        echo '<br>Resultados: ';
-        print_r($datos);
-        echo '<br>';
-        //print_r($total) ;
+
         echo('<pre>');
             var_dump($datos);
         echo('</pre>');
-        foreach ($datos as $f => $valor) {
-            foreach ($datos as $f2 => $valor2){
-                echo $valor2;
-            }
+        foreach ($datos as $f => $valor) {            
+            echo $valor['nombres'], ' ', $valor['apellidos'], '<br>';
         }
-        echo '<br>';
-        $pila = array("naranja", "plátano");
-        array_push($pila, "manzana", "arándano");
         //print_r($pila);
         #foreach ($resultados as $value=>$v) {
         #    echo $resultados[$value], '<br>';
