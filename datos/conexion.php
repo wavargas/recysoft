@@ -1,5 +1,5 @@
 <?php
-require('./config/config.php');
+include('../config/config.php');
 class Conexion extends mysqli
 {
     public function __construct()
@@ -7,7 +7,7 @@ class Conexion extends mysqli
         parent::__construct(servidor,userdb,passdb,nombrebd);
         $this->query("SET NAMES 'utf8';");
         $this->connect_errno ? die("Imposible conectar con la base de datos") : $x = "Conectado";
-        //echo $x;
+        #echo $x;
         unset($x);
     }
 }
