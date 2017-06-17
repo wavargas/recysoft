@@ -1,13 +1,12 @@
 <?php
-include('..\datos/CData.php');
-
-
+#include('..\datos/CData.php');
+spl_autoload_register();
 define ('SERVIDOR', 'localhost');
 define ('USUARIOBD', 'root');
 define ('CONTRASENIABD', '');
 define ('NOMBREBD', 'RecySoft');
 
-$db = new CData(SERVIDOR, USUARIOBD, CONTRASENIABD, NOMBREBD);
+$db = new Datos\Clases\CData(SERVIDOR, USUARIOBD, CONTRASENIABD, NOMBREBD);
 $db->Conectar();
 $query='select * from usuarios';
 $resultado = $db->EjecutarConsulta($query);

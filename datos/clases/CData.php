@@ -1,4 +1,5 @@
 <?php
+namespace Datos\Clases;
 class CData extends mysqli
 {
     var $host = null;
