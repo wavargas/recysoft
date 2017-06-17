@@ -6,7 +6,7 @@ define ('USUARIOBD', 'root');
 define ('CONTRASENIABD', '');
 define ('NOMBREBD', 'RecySoft');
 
-$db = new Datos\Clases\CData(SERVIDOR, USUARIOBD, CONTRASENIABD, NOMBREBD);
+$db = new datos\clases\CData(SERVIDOR, USUARIOBD, CONTRASENIABD, NOMBREBD);
 $db->Conectar();
 $query='select * from usuarios';
 $resultado = $db->EjecutarConsulta($query);
