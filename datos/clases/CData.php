@@ -1,17 +1,17 @@
 <?php
 namespace datos\clases;
-
+use mysqli;
 class CData extends mysqli
 {
     var $host = null;
     var $usuario = null;
     var $contrasenia = null;
     var $database = null;
-    private $con;
+    
     #function __construct($host, $usuario, $contrasenia, $nombrebd)
     function __construct()
     {
-        $this->con = new Conectar();
+        
     }
 
     function Conectar()
@@ -19,7 +19,7 @@ class CData extends mysqli
         parent::__construct($this->host,$this->usuario,$this->contrasenia,$this->database);
         $this->query("SET NAMES 'utf8';");
         $this->connect_errno ? die("Imposible conectar con la base de datos.") : $x = "Conectado";
-        #echo $x;
+        echo $x;
         unset($x);
     }
     
@@ -53,4 +53,6 @@ class CData extends mysqli
         //mysqli_close($this->link);
     }
 }
+$cone = new CData('localhost','root','','recysoft');
+$cone ->Conectar();
 ?>
