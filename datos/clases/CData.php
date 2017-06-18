@@ -1,26 +1,19 @@
-<?php
-namespace datos\clases;
+<?php namespace datos\clases;
 use mysqli;
-class CData extends mysqli
+class CData
 {
-    var $host = null;
-    var $usuario = null;
-    var $contrasenia = null;
-    var $database = null;
-    
     #function __construct($host, $usuario, $contrasenia, $nombrebd)
+
     function __construct()
     {
-        
-    }
-
-    function Conectar()
-    {
-        parent::__construct($this->host,$this->usuario,$this->contrasenia,$this->database);
-        $this->query("SET NAMES 'utf8';");
-        $this->connect_errno ? die("Imposible conectar con la base de datos.") : $x = "Conectado";
-        echo $x;
-        unset($x);
+        #$conexion = new mysqli($this->host,$this->usuario,$this->contrasenia,$this->database);
+        $conexion = new mysqli("localhost", "root", "", "recysoft");
+        if($conexion->connect_errno)
+        {
+            echo "Fallo la conexión: ". $conexion->connect_error . "";
+        }else{
+            echo "Conectado";
+        }
     }
     
     /**
@@ -53,6 +46,5 @@ class CData extends mysqli
         //mysqli_close($this->link);
     }
 }
-$cone = new CData('localhost','root','','recysoft');
-$cone ->Conectar();
+#$cone = new CData();
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace Pruebas\Pru;
+namespace Pruebas;
 
 class CPrueba
 {

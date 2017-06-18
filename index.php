@@ -1,5 +1,6 @@
 <?php
 include ('config/config_clases.php');
+#use Pruebas;
 /*include('./includes/comunes.php');
 
 $templates = new RecySoft();
@@ -8,6 +9,6 @@ $templates->assign(array('variable'=>'Hola, todo bien',
 $templates->display('public/index.tpl');
 */
 //include('./datos/CData.php');
-$obj = new Pruebas\Pru\CPrueba();
+$obj = new Pruebas\CPrueba();
 $obj->Escribir('Wilmer');
 ?>
