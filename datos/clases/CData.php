@@ -1,16 +1,13 @@
-<?php namespace datos\clases;
+<?php namespace datos\clases\CData;
 use mysqli;
 class CData
 {
-    #function __construct($host, $usuario, $contrasenia, $nombrebd)
-
     function __construct()
     {
-        #$conexion = new mysqli($this->host,$this->usuario,$this->contrasenia,$this->database);
         $conexion = new mysqli("localhost", "root", "", "recysoft");
         if($conexion->connect_errno)
         {
-            echo "Fallo la conexión: ". $conexion->connect_error . "";
+            echo "Fallo la conexión: ". $conexion->error . "";
         }else{
             echo "Conectado";
         }
@@ -19,7 +16,6 @@ class CData
     /**
     * $query = consulta a ejecutar
     */
-
     function EjecutarConsulta($query)
     {
         $resultado= $this->query($query);
