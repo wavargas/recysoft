@@ -1,18 +1,17 @@
 <?php
 namespace datos\clases;
+
 class CData extends mysqli
 {
     var $host = null;
     var $usuario = null;
     var $contrasenia = null;
     var $database = null;
-    //function __construct($host, $usuario, $contrasenia, $nombrebd)
+    private $con;
+    #function __construct($host, $usuario, $contrasenia, $nombrebd)
     function __construct()
     {
-        $this->host = $host;
-        $this->usuario = $usuario;
-        $this->contrasenia = $contrasenia;
-        $this->database = $nombrebd;
+        $this->con = new Conectar();
     }
 
     function Conectar()

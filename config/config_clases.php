@@ -1,7 +1,7 @@
-<?php
-	function autoload($clase)
-	{
-		include "clases/".$clase.".php";
-	}
-	spl_autoload_register('autoload');
+<?php namespace config;
+	spl_autoload_register(function($clase){
+		$ruta = str_replace('\\','/',$clase);
+                print $ruta;
+                include $ruta.'.php';
+	});
 ?>
