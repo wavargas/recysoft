@@ -1,8 +1,9 @@
-<?php namespace datos\clases\CData;
+<?php namespace datos\clases;
 use mysqli;
+use config;
 class CData
 {
-    function __construct()
+    function Conectar()
     {
         $conexion = new mysqli("localhost", "root", "", "recysoft");
         if($conexion->connect_errno)
@@ -12,10 +13,7 @@ class CData
             echo "Conectado";
         }
     }
-    
-    /**
-    * $query = consulta a ejecutar
-    */
+    /*
     function EjecutarConsulta($query)
     {
         $resultado= $this->query($query);
@@ -40,7 +38,7 @@ class CData
     function CerrarConexion(){
         $this->close();
         //mysqli_close($this->link);
-    }
+    }*/
 }
 #$cone = new CData();
 ?>

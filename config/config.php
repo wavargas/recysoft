@@ -1,7 +1,15 @@
-<?php namespace config;
-include 'config_clases.php';
-$db = new \datos\clases\CData();
-$db->Conectar();
+<?php 
+namespace config;
+
+define('HOST', 'localhost');
+define('USER', 'root');
+define('PASS', '');
+define('DB', 'recysoft');
+
+$obj = new Conexion(HOST, USER, PASS, DB);
+$obj->conectar();
+
+/*
 $query='select * from usuarios';
 $resultado = $db->EjecutarConsulta($query);
 echo '<pre>', print_r($resultado), '</pre>';
@@ -15,4 +23,6 @@ if($resultado)
 }
 $db->LiberarResultado($resultado);
 $db->CerrarConexion();
+ * 
+ */
 ?>
