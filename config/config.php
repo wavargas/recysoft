@@ -1,13 +1,11 @@
 <?php 
 namespace config;
-
-define('HOST', 'localhost');
-define('USER', 'root');
-define('PASS', '');
-define('DB', 'recysoft');
-
-$obj = new Conexion(HOST, USER, PASS, DB);
-$obj->conectar();
+include 'config/config_autoload.php';
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_DATABASE', 'recysoft');
+define('DB_CHARSET', 'utf8');
 
 /*
 $query='select * from usuarios';

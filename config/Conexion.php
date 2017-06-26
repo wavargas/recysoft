@@ -1,28 +1,20 @@
-<?php namespace config;
+<?php 
+namespace config;
 use mysqli;
 class Conexion
 {
-    var $host = null;
-    var $usuario = null;
-    var $password = null;
-    var $database = null;
-    function __construct($h, $u, $p, $db)
+    protected $conexion;
+    public function __construct($h, $u, $p, $db)
     {
-        $this->host = $h;
-        $this->usuario = $u;
-        $this->password = $p;
-        $this->database = $db;
-    }
-
-    public function conectar()
-    {
-        $conexion = new mysqli($this->host, $this->usuario, $this->password, $this->db);
-        if($conexion->connect_errno)
+        $this->conexion = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_DATABASE);
+        if($this->conexion->connect_errno)
         {
-            echo "Fallo la conexión: ". $conexion->connect_error . "";
+            echo "Fallo la conexión: ". $this->conexion->connect_error;
+            return;
         }else{
             echo "Conectado";
         }
+        $this->conexion->set_charset(DB_CHARSET);
     }
 }
 ?>
