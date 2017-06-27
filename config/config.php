@@ -1,10 +1,11 @@
-<?php 
-namespace config;
-
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_DATABASE', 'recysoft');
-define('DB_CHARSET', 'utf8');
-
+<?php namespace config{
+    class config
+    {
+        const DB_HOST = 'localhost';
+        const DB_USER = 'root';
+        const DB_PASS = '';
+        const DB_DATABASE = 'recysoft';
+        const DB_CHARSET = 'utf8';
+    }
+}
 ?>

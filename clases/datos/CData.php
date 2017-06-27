@@ -1,12 +1,13 @@
-<?php 
-use config;
+<?php namespace clases\datos;
 use mysqli;
+include '../config/config_autoload.php';
+include '../config/config.php';
 class CData extends mysqli
 {
     protected $conexion;
     public function __construct()
     {
-        $this->conexion = parent::__construct(\config\DB_HOST, \config\DB_USER, \config\DB_PASS, \config\DB_DATABASE);
+        $this->conexion = parent:: __construct(DB_HOST, DB_USER, DB_PASS, DB_DATABASE);
         if($this->conexion->connect_errno)
         {
             echo "Fallo la conexión: ". $this->conexion->connect_error;
