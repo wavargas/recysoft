@@ -1,10 +1,21 @@
 <?php 
-namespace datos\clases;
 use config;
-class CData
+use mysqli;
+class CData extends mysqli
 {
-    
-    /*
+    protected $conexion;
+    public function __construct()
+    {
+        $this->conexion = parent::__construct(\config\DB_HOST, \config\DB_USER, \config\DB_PASS, \config\DB_DATABASE);
+        if($this->conexion->connect_errno)
+        {
+            echo "Fallo la conexión: ". $this->conexion->connect_error;
+            return;
+        }else{
+            print_r("Conectado");
+        }
+        #$this->conexion->set_charset(DB_CHARSET);
+    }
     function EjecutarConsulta($query)
     {
         $resultado= $this->query($query);
@@ -29,7 +40,7 @@ class CData
     function CerrarConexion(){
         $this->close();
         //mysqli_close($this->link);
-    }*/
+    }
 }
-#$cone = new CData();
+$cone = new CData();
 ?>
